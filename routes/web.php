@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Mcp\Enums\Role;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,7 +39,7 @@ Route::redirect('/home', '/');
  //   return "Halaman tidak di temukan";
 //});
 
-Route::get('/mahasiswa', function() {
+/* Route::get('/mahasiswa', function() {
     $arrMhs=[
         'mhs1' => 'Mark Zuckerberg',
         'mhs2' => 'Taylor Swift',
@@ -47,5 +48,23 @@ Route::get('/mahasiswa', function() {
     return view('akademik.mahasiswa')->with($arrMhs); //ini menggunakan method with untuk mengirim data ke view
     // return view('akademik.mahasiswa',$arrMhs);    ini menggunakan parameter kedua untuk mengirim data ke view
 });
+*/
+
+Route::get('/mahasiswa', function() {
+    $nama='Taylor Swift';
+    $nim='2401091007';
+    $total_nilai=70;
+    return view('akademik.nilai_mahasiswa', compact ('nama', 'nim', 'total_nilai'));
+});
 
 
+Route::get('/perulangan', function(){
+    return view('akademik.perulangan');
+});
+
+Route::get('/perulangan', function() {
+    $nama='Taylor Swift';
+    $nim='2401091007';
+    $total_nilai=[60,80,40];
+    return view('akademik.perulangan', compact ('nama', 'nim', 'total_nilai'));
+});
