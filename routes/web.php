@@ -65,6 +65,6 @@ Route::get('/perulangan', function(){
 Route::get('/perulangan', function() {
     $nama='Taylor Swift';
     $nim='2401091007';
-    $total_nilai=[60,80,40];
+    $total_nilai=[80,40,50,90,45];
     return view('akademik.perulangan', compact ('nama', 'nim', 'total_nilai'));
 });
