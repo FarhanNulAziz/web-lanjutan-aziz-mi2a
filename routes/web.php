@@ -68,3 +68,18 @@ Route::get('/perulangan', function() {
     $total_nilai=[80,40,50,90,45];
     return view('akademik.perulangan', compact ('nama', 'nim', 'total_nilai'));
 });
+
+Route::get('/mahasiswa', function (){
+    $arrMhs=['Bill Gates','Linus Benedict Torval','Taylor Otwell', 'Elon Musk','Muhammad Yazid'];
+    return view('akademik.mahasiswa',['mhs'=>$arrMhs]);
+});
+Route::get('/dosen', function (){
+    $arrDosen=['Ronal Hadi','Deny S','Fazrol R','Deddy P','Ervan A','Cipto P'];
+    return view('akademik.dosen',['mhs'=>$arrDosen]);
+});
+
+Route::get('/pnp/{jurusan}/{prodi}', function($jurusan,$prodi){
+    $data=[$jurusan,$prodi];
+    return view('akademik.prodi')->with('data',$data);
+}) ->name('prodi');
+
