@@ -1,12 +1,36 @@
 <?php
 
+use App\Http\Controllers\Auth\DosenController;
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
-use Laravel\Mcp\Enums\Role;
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+
+Route::get('/dosen', [DosenController::class, 'index']);
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 Route::get('/home', function() {
     echo "Halaman Home <br>";
     return "Baris kedua";
@@ -49,7 +73,7 @@ Route::redirect('/home', '/');
     // return view('akademik.mahasiswa',$arrMhs);    ini menggunakan parameter kedua untuk mengirim data ke view
 });
 */
-
+/*
 Route::get('/mahasiswa', function() {
     $nama='Taylor Swift';
     $nim='2401091007';
@@ -83,3 +107,5 @@ Route::get('/pnp/{jurusan}/{prodi}', function($jurusan,$prodi){
     return view('akademik.prodi')->with('data',$data);
 }) ->name('prodi');
 
+
+*/
