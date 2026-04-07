@@ -13,10 +13,9 @@ Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 
 Route::get('/dosen', [DosenController::class, 'index']);
 
-
-
+Route::get('/sql', [MahasiswaController::class, 'insertSql']);
     
-
+Route::get('/prepared', [MahasiswaController::class, 'insertPrepared']);
 
 
 
