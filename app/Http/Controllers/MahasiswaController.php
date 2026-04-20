@@ -201,4 +201,77 @@ public function allview()
     return view('akademik.mahasiswa', ['students' => $mahasiswa]);
 }
 
+public function where()
+{
+    $mahasiswas=Mahasiswa :: where('prodi','TRPL')
+    ->orderBy('nama_lengkap','asc')
+    ->get();
+    return view('akademik.mahasiswa', ['students'=>$mahasiswas]);
+}
+
+public function first()
+{
+    $mahasiswas=Mahasiswa :: where('prodi','TRPL')->first();
+    return view('akademik.mahasiswa', ['students'=>[$mahasiswas]]);
+}
+
+public function find()
+{
+    $mahasiswas=Mahasiswa :: find(4);
+    return view('akademik.mahasiswa', ['students'=>[$mahasiswas]]);
+}
+
+public function latest()
+{
+    $mahasiswas=Mahasiswa :: latest()->get();
+    return view('akademik.mahasiswa', ['students'=>$mahasiswas]);
+}
+
+public function limit()
+{
+    $mahasiswas=Mahasiswa :: latest()->limit(2)->get();
+    return view('akademik.mahasiswa', ['students'=>$mahasiswas]);
+
+}
+
+public function skipTake()
+{
+    $mahasiswas=Mahasiswa :: orderBy('id')->skip(1)->take(2)->get();
+    return view('akademik.mahasiswa', ['students'=>$mahasiswas]);
+}
+
+public function softDelete()
+{
+    Mahasiswa :: where('id','2')->delete();
+    return ('Data berhasil dihapus');
+}
+
+public function withTrashed()
+{
+
+    $mahasiswas=Mahasiswa :: withTrashed()->get();
+    return view('akademik.mahasiswa', ['students'=>$mahasiswas]);
+
+}
+
+public function restore()
+{
+    Mahasiswa :: withTrashed()->where('id','2')->restore();
+    return 'Berhasil di restore';
+}
+
+public function forceDelete()
+{
+
+    Mahasiswa :: where('id','2')->forceDelete();
+    return ('Data berhasil dihapus secara permanen');
+
+}
+
+public function index()
+{
+    $mahasiswas=Mahasiswa :: latest()->paginate(25);
+    return view('akademik.mahasiswa', ['students'=>$mahasiswas]);
+}
+
 }

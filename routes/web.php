@@ -8,9 +8,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-/*
-Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
 
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('/dosen', [DosenController::class, 'indexD']);
+
+
+/*
 Route::get('/insertsql', [MahasiswaController::class, 'insertSql']);
     
 Route::get('/prepared', [MahasiswaController::class, 'insertPrepared']);
@@ -51,8 +54,8 @@ Route::get('/get-view-r', [DosenController::class, 'getViewR']);
 Route::get('/get-where', [DosenController::class, 'getwhere']);
 Route::get('/select-dosen', [DosenController::class, 'selectDosen']);
 Route::get('/take', [DosenController::class, 'take']);
-Route::get('/first', [DosenController::class, 'first']);
-Route::get('/find', [DosenController::class, 'find']);
+Route::get('/firstdosen', [DosenController::class, 'firstdosen']);
+Route::get('/finddosen', [DosenController::class, 'finddosen']);
 Route::get('/raw', [DosenController::class, 'raw']);
 
 
@@ -76,6 +79,7 @@ Route::get('/soft-delete', [MahasiswaController::class, 'softDelete']);
 Route::get('/with-trashed', [MahasiswaController::class, 'withTrashed']);
 Route::get('/restore', [MahasiswaController::class, 'restore']);
 Route::get('/force-delete', [MahasiswaController::class, 'forceDelete']);
+
 
 /*
 Route::get('/home', function() {

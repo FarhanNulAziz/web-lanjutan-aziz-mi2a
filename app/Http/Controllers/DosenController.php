@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use App\Models\Dosen;
 
 class DosenController extends Controller
 {
@@ -154,14 +155,14 @@ class DosenController extends Controller
         return view('akademik.dosen',[ 'dosens' => $query ]);
     }
 
-    public function first()
+    public function firstdosen()
     {
         $query = DB::table('dosens')
             ->where('nama', 'Alex Johnson') ->first();
           return view('akademik.dosen',[ 'dosens' => [$query ]]);
     }
 
-    public function find()
+    public function finddosen()
     {
         $query = DB::table('dosens')
             ->find(2);
@@ -176,4 +177,10 @@ class DosenController extends Controller
         
         echo $query[0]->total_dosen;    
     }
+
+    public function indexD()
+{
+    $query = DB::table('dosens')->latest()->paginate(25);
+    return view('akademik.dosen', ['dosens'=>$query]);
+}
 }

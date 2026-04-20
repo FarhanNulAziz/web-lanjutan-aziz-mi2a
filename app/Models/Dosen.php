@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Mahasiswa extends Model
+class dosen extends Model
 {
-    protected $table = 'students';
+    protected $table = 'dosens';
+    protected $fillable = ['nik','nama','email','no_telp','prodi','alamat'];
+
     use HasFactory;
-
-    protected $fillable = ['nim','nama_lengkap','tempat_lahir','tgl_lahir','email','prodi','alamat'];
-    protected $guarded = [];
-
-    use SoftDeletes;
     
+    protected $guarded = [];
+    use SoftDeletes;
 }
